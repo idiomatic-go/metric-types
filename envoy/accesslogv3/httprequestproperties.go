@@ -1,8 +1,8 @@
-package metric
+package accesslogv3
 
 import (
 	"github.com/golang/protobuf/ptypes/wrappers"
-	v3 "github.com/idiomatic-go/metric-data/v3"
+	"github.com/idiomatic-go/metric-data/envoy/v3"
 	"google.golang.org/protobuf/runtime/protoimpl"
 )
 

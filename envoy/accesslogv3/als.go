@@ -1,8 +1,8 @@
-package metric
+package accesslogv3
 
 import (
-	v3 "github.com/idiomatic-go/metric-data/v3"
-	v31 "github.com/idiomatic-go/metric-data/v31"
+	"github.com/idiomatic-go/metric-data/envoy/v3"
+	v312 "github.com/idiomatic-go/metric-data/envoy/v31"
 	"google.golang.org/protobuf/runtime/protoimpl"
 )
 
@@ -28,7 +28,7 @@ type StreamAccessLogsMessage_HTTPAccessLogEntries struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	LogEntry []*v31.HTTPAccessLogEntry `protobuf:"bytes,1,rep,name=log_entry,json=logEntry,proto3" json:"log_entry,omitempty"`
+	LogEntry []*v312.HTTPAccessLogEntry `protobuf:"bytes,1,rep,name=log_entry,json=logEntry,proto3" json:"log_entry,omitempty"`
 }
 
 type StreamAccessLogsMessage_HttpLogs struct {
@@ -41,7 +41,7 @@ type StreamAccessLogsMessage_TCPAccessLogEntries struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	LogEntry []*v31.TCPAccessLogEntry `protobuf:"bytes,1,rep,name=log_entry,json=logEntry,proto3" json:"log_entry,omitempty"`
+	LogEntry []*v312.TCPAccessLogEntry `protobuf:"bytes,1,rep,name=log_entry,json=logEntry,proto3" json:"log_entry,omitempty"`
 }
 
 type StreamAccessLogsMessage_TcpLogs struct {

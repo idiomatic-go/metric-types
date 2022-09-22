@@ -1,4 +1,4 @@
-package metric
+package accesslogv3
 
 import (
 	"github.com/golang/protobuf/ptypes/wrappers"

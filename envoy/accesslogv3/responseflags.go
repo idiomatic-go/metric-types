@@ -1,4 +1,4 @@
-package metric
+package accesslogv3
 
 import (
 	"google.golang.org/protobuf/runtime/protoimpl"

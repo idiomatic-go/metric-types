@@ -2,7 +2,7 @@ package v3
 
 import (
 	_struct "github.com/golang/protobuf/ptypes/struct"
-	v31 "github.com/idiomatic-go/metric-data/v31"
+	"github.com/idiomatic-go/metric-data/envoy/v31"
 	"google.golang.org/protobuf/runtime/protoimpl"
 )
 

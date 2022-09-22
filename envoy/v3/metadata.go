@@ -2,7 +2,7 @@ package v3
 
 import (
 	_struct "github.com/golang/protobuf/ptypes/struct"
-	"github.com/idiomatic-go/metric-data/any"
+	any2 "github.com/idiomatic-go/metric-data/envoy/any"
 	"google.golang.org/protobuf/runtime/protoimpl"
 )
 
@@ -46,5 +46,5 @@ type Metadata struct {
 	// If both :ref:`filter_metadata <envoy_v3_api_field_config.core.v3.Metadata.filter_metadata>`
 	// and ``typed_filter_metadata`` fields are present in the metadata with same keys,
 	// only ``typed_filter_metadata`` field will be parsed.
-	TypedFilterMetadata map[string]*any.Any `protobuf:"bytes,2,rep,name=typed_filter_metadata,json=typedFilterMetadata,proto3" json:"typed_filter_metadata,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
+	TypedFilterMetadata map[string]*any2.Any `protobuf:"bytes,2,rep,name=typed_filter_metadata,json=typedFilterMetadata,proto3" json:"typed_filter_metadata,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
 }

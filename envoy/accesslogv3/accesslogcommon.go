@@ -1,9 +1,9 @@
-package metric
+package accesslogv3
 
 import (
-	"github.com/idiomatic-go/metric-data/any"
-	"github.com/idiomatic-go/metric-data/timestamp"
-	v3 "github.com/idiomatic-go/metric-data/v3"
+	any2 "github.com/idiomatic-go/metric-data/envoy/any"
+	"github.com/idiomatic-go/metric-data/envoy/timestamp"
+	v32 "github.com/idiomatic-go/metric-data/envoy/v3"
 	duration "time"
 )
 
@@ -12,9 +12,9 @@ type AccessLogCommon struct {
 	// This field is the remote/origin address on which the request from the user was received.
 	// Note: This may not be the physical peer. E.g, if the remote address is inferred from for
 	// example the x-forwarder-for header, proxy protocol, etc.
-	DownstreamRemoteAddress *v3.Address `protobuf:"bytes,2,opt,name=downstream_remote_address,json=downstreamRemoteAddress,proto3" json:"downstream_remote_address,omitempty"`
+	DownstreamRemoteAddress *v32.Address `protobuf:"bytes,2,opt,name=downstream_remote_address,json=downstreamRemoteAddress,proto3" json:"downstream_remote_address,omitempty"`
 	// This field is the local/destination address on which the request from the user was received.
-	DownstreamLocalAddress *v3.Address `protobuf:"bytes,3,opt,name=downstream_local_address,json=downstreamLocalAddress,proto3" json:"downstream_local_address,omitempty"`
+	DownstreamLocalAddress *v32.Address `protobuf:"bytes,3,opt,name=downstream_local_address,json=downstreamLocalAddress,proto3" json:"downstream_local_address,omitempty"`
 	// If the connection is secure,S this field will contain TLS properties.
 	TlsProperties *TLSProperties `protobuf:"bytes,4,opt,name=tls_properties,json=tlsProperties,proto3" json:"tls_properties,omitempty"`
 	// The time that Envoy started servicing this request. This is effectively the time that the first
@@ -53,9 +53,9 @@ type AccessLogCommon struct {
 	TimeToLastDownstreamTxByte *duration.Duration `protobuf:"bytes,12,opt,name=time_to_last_downstream_tx_byte,json=timeToLastDownstreamTxByte,proto3" json:"time_to_last_downstream_tx_byte,omitempty"`
 	// The upstream remote/destination address that handles this exchange. This does not include
 	// retries.
-	UpstreamRemoteAddress *v3.Address `protobuf:"bytes,13,opt,name=upstream_remote_address,json=upstreamRemoteAddress,proto3" json:"upstream_remote_address,omitempty"`
+	UpstreamRemoteAddress *v32.Address `protobuf:"bytes,13,opt,name=upstream_remote_address,json=upstreamRemoteAddress,proto3" json:"upstream_remote_address,omitempty"`
 	// The upstream local/origin address that handles this exchange. This does not include retries.
-	UpstreamLocalAddress *v3.Address `protobuf:"bytes,14,opt,name=upstream_local_address,json=upstreamLocalAddress,proto3" json:"upstream_local_address,omitempty"`
+	UpstreamLocalAddress *v32.Address `protobuf:"bytes,14,opt,name=upstream_local_address,json=upstreamLocalAddress,proto3" json:"upstream_local_address,omitempty"`
 	// The upstream cluster that ``upstream_remote_address`` belongs to.
 	UpstreamCluster string `protobuf:"bytes,15,opt,name=upstream_cluster,json=upstreamCluster,proto3" json:"upstream_cluster,omitempty"`
 	// Flags indicating occurrences during request/response processing.
@@ -68,7 +68,7 @@ type AccessLogCommon struct {
 	// route created from a higher level forwarding rule with some ID can place
 	// that ID in this field and cross reference later. It can also be used to
 	// determine if a canary endpoint was used or not.
-	Metadata *v3.Metadata `protobuf:"bytes,17,opt,name=metadata,proto3" json:"metadata,omitempty"`
+	Metadata *v32.Metadata `protobuf:"bytes,17,opt,name=metadata,proto3" json:"metadata,omitempty"`
 	// If upstream connection failed due to transport socket (e.g. TLS handshake), provides the
 	// failure reason from the transport socket. The format of this field depends on the configured
 	// upstream transport socket. Common TLS failures are in
@@ -79,11 +79,11 @@ type AccessLogCommon struct {
 	// This field is the downstream direct remote address on which the request from the user was
 	// received. Note: This is always the physical peer, even if the remote address is inferred from
 	// for example the x-forwarder-for header, proxy protocol, etc.
-	DownstreamDirectRemoteAddress *v3.Address `protobuf:"bytes,20,opt,name=downstream_direct_remote_address,json=downstreamDirectRemoteAddress,proto3" json:"downstream_direct_remote_address,omitempty"`
+	DownstreamDirectRemoteAddress *v32.Address `protobuf:"bytes,20,opt,name=downstream_direct_remote_address,json=downstreamDirectRemoteAddress,proto3" json:"downstream_direct_remote_address,omitempty"`
 	// Map of filter state in stream info that have been configured to be logged. If the filter
 	// state serialized to any message other than ``google.protobuf.Any`` it will be packed into
 	// ``google.protobuf.Any``.
-	FilterStateObjects map[string]*any.Any `protobuf:"bytes,21,rep,name=filter_state_objects,json=filterStateObjects,proto3" json:"filter_state_objects,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
+	FilterStateObjects map[string]*any2.Any `protobuf:"bytes,21,rep,name=filter_state_objects,json=filterStateObjects,proto3" json:"filter_state_objects,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
 	// A list of custom tags, which annotate logs with additional information.
 	// To configure this value, users should configure
 	// :ref:`custom_tags <envoy_v3_api_field_extensions.access_loggers.grpc.v3.CommonGrpcAccessLogConfig.custom_tags>`.
