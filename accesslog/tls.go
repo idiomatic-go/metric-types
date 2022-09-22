@@ -43,6 +43,12 @@ type TLSProperties_CertificateProperties_SubjectAltName_Dns struct {
 	Dns string `protobuf:"bytes,2,opt,name=dns,proto3,oneof"`
 }
 
+func (*TLSProperties_CertificateProperties_SubjectAltName_Uri) isTLSProperties_CertificateProperties_SubjectAltName_San() {
+}
+
+func (*TLSProperties_CertificateProperties_SubjectAltName_Dns) isTLSProperties_CertificateProperties_SubjectAltName_San() {
+}
+
 type TLSProperties_CertificateProperties_SubjectAltName struct {
 	// Types that are assignable to San:
 	//	*TLSProperties_CertificateProperties_SubjectAltName_Uri
@@ -55,6 +61,20 @@ type TLSProperties_CertificateProperties struct {
 	SubjectAltName []*TLSProperties_CertificateProperties_SubjectAltName `protobuf:"bytes,1,rep,name=subject_alt_name,json=subjectAltName,proto3" json:"subject_alt_name,omitempty"`
 	// The subject field of the certificate.
 	Subject string `protobuf:"bytes,2,opt,name=subject,proto3" json:"subject,omitempty"`
+}
+
+func (x *TLSProperties_CertificateProperties) GetSubjectAltName() []*TLSProperties_CertificateProperties_SubjectAltName {
+	if x != nil {
+		return x.SubjectAltName
+	}
+	return nil
+}
+
+func (x *TLSProperties_CertificateProperties) GetSubject() string {
+	if x != nil {
+		return x.Subject
+	}
+	return ""
 }
 
 type TLSProperties struct {

@@ -1,5 +1,7 @@
 package accesslog
 
+// Changes : added Ingress flag
+
 type TCPAccessLogEntry struct {
 	Ingress bool
 	// Common properties shared by all Envoy access logs.

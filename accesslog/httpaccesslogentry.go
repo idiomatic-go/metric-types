@@ -1,5 +1,7 @@
 package accesslog
 
+// Changes : added Ingress flag
+
 type HTTPAccessLogEntry_HTTPVersion int32
 
 type HTTPAccessLogEntry struct {

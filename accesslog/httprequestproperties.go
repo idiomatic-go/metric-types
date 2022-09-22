@@ -41,3 +41,10 @@ type HTTPRequestProperties struct {
 	// Map of additional headers that have been configured to be logged.
 	RequestHeaders map[string]string `protobuf:"bytes,13,rep,name=request_headers,json=requestHeaders,proto3" json:"request_headers,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
 }
+
+func GetRequestMethodName(r *HTTPRequestProperties) string {
+	if r != nil {
+		return RequestMethod_name[int32(r.RequestMethod)]
+	}
+	return ""
+}

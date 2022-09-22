@@ -1,5 +1,7 @@
 package accesslog
 
+// Changes : only allow SocketAddress
+
 type SocketAddress_Protocol int32
 
 const (
@@ -32,6 +34,13 @@ type SocketAddress struct {
 	PortSpecifier SocketAddress_PortValue
 	ResolverName  string
 	Ipv4Compat    bool
+}
+
+func GetProtocolName(s *SocketAddress) string {
+	if s != nil {
+		return SocketAddress_Protocol_name[int32(s.Protocol)]
+	}
+	return ""
 }
 
 // Only accept SocketAddress

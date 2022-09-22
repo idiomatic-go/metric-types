@@ -41,6 +41,12 @@ type TLSProperties_CertificateProperties_SubjectAltName_Uri struct {
 	Uri string `protobuf:"bytes,1,opt,name=uri,proto3,oneof"`
 }
 
+func (*TLSProperties_CertificateProperties_SubjectAltName_Uri) isTLSProperties_CertificateProperties_SubjectAltName_San() {
+}
+
+func (*TLSProperties_CertificateProperties_SubjectAltName_Dns) isTLSProperties_CertificateProperties_SubjectAltName_San() {
+}
+
 type TLSProperties_CertificateProperties_SubjectAltName_Dns struct {
 	// [#not-implemented-hide:]
 	Dns string `protobuf:"bytes,2,opt,name=dns,proto3,oneof"`
