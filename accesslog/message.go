@@ -15,7 +15,7 @@ type CombinedEntry struct {
 	Tcp  *TCPAccessLogEntry
 }
 
-type StreamAccessLogsMessage struct {
+type AccessLogsMessage struct {
 	Origin OriginIdentifier
 	// Batches of log entries of a single type. Generally speaking, a given stream should only
 	// ever include one type of log entry.
