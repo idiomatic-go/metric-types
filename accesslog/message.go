@@ -3,19 +3,21 @@ package accesslog
 // OriginIdentifier contains the data needed to uniquely identify a log entries
 // Do we really need the node Id ?
 type OriginIdentifier struct {
-	Dc      string
-	Cluster string
-	App     string
-	PodId   string
-	NodeId  string
+	CompanyDomain string // Need this to identity for backend processing
+	Dc            string
+	Cluster       string
+	App           string
+	PodId         string
+	NodeId        string
 }
 
 type CombinedEntry struct {
-	Http *HTTPAccessLogEntry
-	Tcp  *TCPAccessLogEntry
+	CommonProperties Common
+	Http             *HTTPAccessLogEntry
+	Tcp              *TCPAccessLogEntry
 }
 
-type AccessLogsMessage struct {
+type Message struct {
 	Origin OriginIdentifier
 	// Batches of log entries of a single type. Generally speaking, a given stream should only
 	// ever include one type of log entry.

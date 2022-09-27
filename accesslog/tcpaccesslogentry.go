@@ -1,11 +1,15 @@
 package accesslog
 
-// Changes : added Ingress flag
+type ConnectionProperties struct {
+	// Number of bytes received from downstream.
+	ReceivedBytes uint64
+	// Number of bytes sent to downstream.
+	SentBytes uint64
+}
 
 type TCPAccessLogEntry struct {
-	Ingress bool
 	// Common properties shared by all Envoy access logs.
-	CommonProperties *AccessLogCommon `protobuf:"bytes,1,opt,name=common_properties,json=commonProperties,proto3" json:"common_properties,omitempty"`
+	//CommonProperties *Common
 	// Properties of the TCP connection.
-	ConnectionProperties *ConnectionProperties `protobuf:"bytes,2,opt,name=connection_properties,json=connectionProperties,proto3" json:"connection_properties,omitempty"`
+	ConnectionProperties *ConnectionProperties
 }

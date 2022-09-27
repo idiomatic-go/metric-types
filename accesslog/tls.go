@@ -30,70 +30,23 @@ var (
 	}
 )
 
-type isTLSProperties_CertificateProperties_SubjectAltName_San interface {
-	isTLSProperties_CertificateProperties_SubjectAltName_San()
-}
-
-type TLSProperties_CertificateProperties_SubjectAltName_Uri struct {
-	Uri string `protobuf:"bytes,1,opt,name=uri,proto3,oneof"`
-}
-
-type TLSProperties_CertificateProperties_SubjectAltName_Dns struct {
-	// [#not-implemented-hide:]
-	Dns string `protobuf:"bytes,2,opt,name=dns,proto3,oneof"`
-}
-
-func (*TLSProperties_CertificateProperties_SubjectAltName_Uri) isTLSProperties_CertificateProperties_SubjectAltName_San() {
-}
-
-func (*TLSProperties_CertificateProperties_SubjectAltName_Dns) isTLSProperties_CertificateProperties_SubjectAltName_San() {
-}
-
-type TLSProperties_CertificateProperties_SubjectAltName struct {
-	// Types that are assignable to San:
-	//	*TLSProperties_CertificateProperties_SubjectAltName_Uri
-	//	*TLSProperties_CertificateProperties_SubjectAltName_Dns
-	San isTLSProperties_CertificateProperties_SubjectAltName_San `protobuf_oneof:"san"`
-}
-
-type TLSProperties_CertificateProperties struct {
-	// SANs present in the certificate.
-	SubjectAltName []*TLSProperties_CertificateProperties_SubjectAltName `protobuf:"bytes,1,rep,name=subject_alt_name,json=subjectAltName,proto3" json:"subject_alt_name,omitempty"`
-	// The subject field of the certificate.
-	Subject string `protobuf:"bytes,2,opt,name=subject,proto3" json:"subject,omitempty"`
-}
-
-func (x *TLSProperties_CertificateProperties) GetSubjectAltName() []*TLSProperties_CertificateProperties_SubjectAltName {
-	if x != nil {
-		return x.SubjectAltName
-	}
-	return nil
-}
-
-func (x *TLSProperties_CertificateProperties) GetSubject() string {
-	if x != nil {
-		return x.Subject
-	}
-	return ""
-}
-
 type TLSProperties struct {
 	// Version of TLS that was negotiated.
-	TlsVersion TLSProperties_TLSVersion `protobuf:"varint,1,opt,name=tls_version,json=tlsVersion,proto3,enum=envoy.data.accesslog.v3.TLSProperties_TLSVersion" json:"tls_version,omitempty"`
+	TlsVersion TLSProperties_TLSVersion
 	// TLS cipher suite negotiated during handshake. The value is a
 	// four-digit hex code defined by the IANA TLS Cipher Suite Registry
 	// (e.g. ``009C`` for ``TLS_RSA_WITH_AES_128_GCM_SHA256``).
 	//
 	// Here it is expressed as an integer.
-	TlsCipherSuite uint32 `protobuf:"bytes,2,opt,name=tls_cipher_suite,json=tlsCipherSuite,proto3" json:"tls_cipher_suite,omitempty"`
+	TlsCipherSuite uint32
 	// SNI hostname from handshake.
-	TlsSniHostname string `protobuf:"bytes,3,opt,name=tls_sni_hostname,json=tlsSniHostname,proto3" json:"tls_sni_hostname,omitempty"`
+	//TlsSniHostname string `protobuf:"bytes,3,opt,name=tls_sni_hostname,json=tlsSniHostname,proto3" json:"tls_sni_hostname,omitempty"`
 	// Properties of the local certificate used to negotiate TLS.
-	LocalCertificateProperties *TLSProperties_CertificateProperties `protobuf:"bytes,4,opt,name=local_certificate_properties,json=localCertificateProperties,proto3" json:"local_certificate_properties,omitempty"`
+	//LocalCertificateProperties *TLSProperties_CertificateProperties `protobuf:"bytes,4,opt,name=local_certificate_properties,json=localCertificateProperties,proto3" json:"local_certificate_properties,omitempty"`
 	// Properties of the peer certificate used to negotiate TLS.
-	PeerCertificateProperties *TLSProperties_CertificateProperties `protobuf:"bytes,5,opt,name=peer_certificate_properties,json=peerCertificateProperties,proto3" json:"peer_certificate_properties,omitempty"`
+	//PeerCertificateProperties *TLSProperties_CertificateProperties `protobuf:"bytes,5,opt,name=peer_certificate_properties,json=peerCertificateProperties,proto3" json:"peer_certificate_properties,omitempty"`
 	// The TLS session ID.
-	TlsSessionId string `protobuf:"bytes,6,opt,name=tls_session_id,json=tlsSessionId,proto3" json:"tls_session_id,omitempty"`
+	//TlsSessionId string `protobuf:"bytes,6,opt,name=tls_session_id,json=tlsSessionId,proto3" json:"tls_session_id,omitempty"`
 	// The ``JA3`` fingerprint when ``JA3`` fingerprinting is enabled.
-	Ja3Fingerprint string `protobuf:"bytes,7,opt,name=ja3_fingerprint,json=ja3Fingerprint,proto3" json:"ja3_fingerprint,omitempty"`
+	//Ja3Fingerprint string `protobuf:"bytes,7,opt,name=ja3_fingerprint,json=ja3Fingerprint,proto3" json:"ja3_fingerprint,omitempty"`
 }

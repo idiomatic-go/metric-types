@@ -1,6 +1,6 @@
 package accesslog
 
-// HTTP request method.
+// RequestMethod - HTTP request method.
 type RequestMethod int32
 
 const (
