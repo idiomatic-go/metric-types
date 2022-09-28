@@ -3,6 +3,10 @@ package accesslog
 // Reasons why the request was unauthorized
 type ResponseFlags_Unauthorized_Reason int32
 
+func ConvertResponseUnauthorizedReason(reason int) ResponseFlags_Unauthorized_Reason {
+	return ResponseFlags_Unauthorized_Reason(reason)
+}
+
 const (
 	ResponseFlags_Unauthorized_REASON_UNSPECIFIED ResponseFlags_Unauthorized_Reason = 0
 	// The request was denied by the external authorization service.

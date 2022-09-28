@@ -2,6 +2,10 @@ package accesslog
 
 type SocketAddress_Protocol int32
 
+func ConvertSocketAddressProtocol(protocol int) SocketAddress_Protocol {
+	return SocketAddress_Protocol(protocol)
+}
+
 const (
 	SocketAddress_TCP SocketAddress_Protocol = 0
 	SocketAddress_UDP SocketAddress_Protocol = 1

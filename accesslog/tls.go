@@ -2,7 +2,11 @@ package accesslog
 
 // Changes : removed wrappers
 
-type TLSProperties_TLSVersion int32
+type TLSProperties_TLSVersion int
+
+func ConvertTLSVersion(vers int) TLSProperties_TLSVersion {
+	return TLSProperties_TLSVersion(vers)
+}
 
 const (
 	TLSProperties_VERSION_UNSPECIFIED TLSProperties_TLSVersion = 0
