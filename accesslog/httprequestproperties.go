@@ -3,6 +3,7 @@ package accesslog
 // Changes : RequestMethod and wrappers.Uint32Value
 
 type HTTPRequestProperties struct {
+	RequestMethodName string
 	// The request method (RFC 7231/2616).
 	RequestMethod RequestMethod `protobuf:"varint,1,opt,name=request_method,json=requestMethod,proto3,enum=envoy.config.core.v3.RequestMethod" json:"request_method,omitempty"`
 	// The scheme portion of the incoming request URI.
@@ -42,9 +43,9 @@ type HTTPRequestProperties struct {
 	RequestHeaders map[string]string `protobuf:"bytes,13,rep,name=request_headers,json=requestHeaders,proto3" json:"request_headers,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
 }
 
-func GetRequestMethodName(r *HTTPRequestProperties) string {
-	if r != nil {
-		return RequestMethod_name[int32(r.RequestMethod)]
+func SetRequestMethodName(r *HTTPRequestProperties, method int32) {
+	if r == nil || method < 0 || method > int32(RequestMethod_PATCH) {
+		return
 	}
-	return ""
+	r.RequestMethodName = RequestMethod_name[method]
 }
