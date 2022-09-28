@@ -2,7 +2,7 @@ package accesslog
 
 type HTTPAccessLogEntry_HTTPVersion int32
 
-func ConvertHttpVersion(vers int) HTTPAccessLogEntry_HTTPVersion {
+func ConvertHttpVersion(vers int32) HTTPAccessLogEntry_HTTPVersion {
 	return HTTPAccessLogEntry_HTTPVersion(vers)
 }
 

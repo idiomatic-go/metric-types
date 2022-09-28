@@ -2,7 +2,7 @@ package accesslog
 
 type SocketAddress_Protocol int32
 
-func ConvertSocketAddressProtocol(protocol int) SocketAddress_Protocol {
+func ConvertSocketAddressProtocol(protocol int32) SocketAddress_Protocol {
 	return SocketAddress_Protocol(protocol)
 }
 

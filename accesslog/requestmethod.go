@@ -3,6 +3,10 @@ package accesslog
 // RequestMethod - HTTP request method.
 type RequestMethod int32
 
+func ConvertRequestMethod(method int32) RequestMethod {
+	return RequestMethod(method)
+}
+
 const (
 	RequestMethod_METHOD_UNSPECIFIED RequestMethod = 0
 	RequestMethod_GET                RequestMethod = 1

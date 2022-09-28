@@ -3,7 +3,7 @@ package accesslog
 // Reasons why the request was unauthorized
 type ResponseFlags_Unauthorized_Reason int32
 
-func ConvertResponseUnauthorizedReason(reason int) ResponseFlags_Unauthorized_Reason {
+func ConvertResponseUnauthorizedReason(reason int32) ResponseFlags_Unauthorized_Reason {
 	return ResponseFlags_Unauthorized_Reason(reason)
 }
 

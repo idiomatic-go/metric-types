@@ -4,7 +4,7 @@ package accesslog
 
 type TLSProperties_TLSVersion int
 
-func ConvertTLSVersion(vers int) TLSProperties_TLSVersion {
+func ConvertTLSVersion(vers int32) TLSProperties_TLSVersion {
 	return TLSProperties_TLSVersion(vers)
 }
 
