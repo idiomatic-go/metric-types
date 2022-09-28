@@ -8,7 +8,7 @@ const (
 
 type Address struct {
 	Type                 string
-	Pipe                 Pipe
-	SocketAddress        SocketAddress
-	EnvoyInternalAddress EnvoyInternalAddress
+	Pipe                 *Pipe
+	SocketAddress        *SocketAddress
+	EnvoyInternalAddress *EnvoyInternalAddress
 }

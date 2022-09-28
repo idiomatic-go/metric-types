@@ -3,12 +3,12 @@ package accesslog
 // OriginIdentifier contains the data needed to uniquely identify a log entries
 // Do we really need the node Id ?
 type OriginIdentifier struct {
-	CompanyDomain string // Need this to identity for backend processing
-	Dc            string
-	Cluster       string
-	App           string
-	PodId         string
-	NodeId        string
+	ClientDomain string // Need this to identity for backend processing
+	Dc           string
+	Cluster      string
+	App          string
+	PodId        string
+	NodeId       string
 }
 
 type CombinedEntry struct {

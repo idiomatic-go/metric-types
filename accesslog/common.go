@@ -11,32 +11,52 @@ const (
 )
 
 type Common struct {
-	Traffic   string
+	Traffic string
+
+	SampleRate float64 // Rate limiting
+
+	DownstreamRemoteAddress *Address
+	DownstreamLocalAddress  *Address
+
+	TlsProperties *TLSProperties
+
 	StartTime *time.Time
-	RouteName string
 
-	// Rate limiting
-	SampleRate float64
-
-	// ResponseFlags - parsed
-	ResponseFlag    string
-	ResponseFlagExt string
-
-	// Durations
-	Duration         *time.Duration
 	RequestDuration  *time.Duration // = TimeToLastRxByte
-	ResponseDuration *time.Duration // = imeToLastUpstreamRxByte
+	ResponseDuration *time.Duration // = TimeToLastUpstreamRxByte
+	TimeToLastRxByte *time.Duration
 
-	TlsProperties TLSProperties
+	TimeToFirstUpstreamTxByte *time.Duration
+	TimeToLastUpstreamTxByte  *time.Duration
+	TimeToFirstUpstreamRxByte *time.Duration
+	TimeToLastUpstreamRxByte  *time.Duration
 
-	// Addresses - omitting DownstreamRemoteAddress, DownstreamLocalAddress, DownstreamDirectRemote
-	UpstreamLocalAddress  Address
-	UpstreamRemoteAddress Address
+	TimeToFirstDownstreamTxByte *time.Duration
+	TimeToLastDownstreamTxByte  *time.Duration
+
+	UpstreamRemoteAddress *Address
+	UpstreamLocalAddress  *Address
 	UpstreamCluster       string
 
-	UpstreamRequestAttemptCount    uint32
-	ConnectionTerminationDetails   string
+	//ResponseFlags *ResponseFlags
+
+	ResponseFlag        string
+	ResponseFlagExt     string
+	UnauthorizedDetails *ResponseFlags_Unauthorized_Reason
+
+	//Metadata *v32.Metadata
+
 	UpstreamTransportFailureReason string
+	RouteName                      string
+	DownstreamDirectRemoteAddress  *Address
+
+	//FilterStateObjects map[string]*any2.Any
+
+	CustomTags map[string]string
+
+	Duration                     *time.Duration
+	UpstreamRequestAttemptCount  uint32
+	ConnectionTerminationDetails string
 
 	/*
 		SampleRate float64 `protobuf:"fixed64,1,opt,name=sample_rate,json=sampleRate,proto3" json:"sample_rate,omitempty"`
@@ -97,7 +117,7 @@ type Common struct {
 		// This can be used to associate IDs attached to the various configurations
 		// used to process this request with the access log entry. For example, a
 		// route created from a higher level forwarding rule with some ID can place
-		// that ID in this field and cross reference later. It can also be used to
+		// that ID in this field and cross-reference later. It can also be used to
 		// determine if a canary endpoint was used or not.
 		Metadata *v32.Metadata `protobuf:"bytes,17,opt,name=metadata,proto3" json:"metadata,omitempty"`
 		// If upstream connection failed due to transport socket (e.g. TLS handshake), provides the

@@ -30,6 +30,22 @@ var (
 	}
 )
 
+type TLSProperties_CertificateProperties_SubjectAltName struct {
+	// Types that are assignable to San:
+	//	*TLSProperties_CertificateProperties_SubjectAltName_Uri
+	//	*TLSProperties_CertificateProperties_SubjectAltName_Dns
+	//San isTLSProperties_CertificateProperties_SubjectAltName_San `protobuf_oneof:"san"`
+	Dns string
+	Uri string
+}
+
+type TLSProperties_CertificateProperties struct {
+	// SANs present in the certificate.
+	SubjectAltName []*TLSProperties_CertificateProperties_SubjectAltName
+	// The subject field of the certificate.
+	Subject string
+}
+
 type TLSProperties struct {
 	// Version of TLS that was negotiated.
 	TlsVersion TLSProperties_TLSVersion
@@ -40,13 +56,13 @@ type TLSProperties struct {
 	// Here it is expressed as an integer.
 	TlsCipherSuite uint32
 	// SNI hostname from handshake.
-	//TlsSniHostname string `protobuf:"bytes,3,opt,name=tls_sni_hostname,json=tlsSniHostname,proto3" json:"tls_sni_hostname,omitempty"`
+	TlsSniHostname string
 	// Properties of the local certificate used to negotiate TLS.
-	//LocalCertificateProperties *TLSProperties_CertificateProperties `protobuf:"bytes,4,opt,name=local_certificate_properties,json=localCertificateProperties,proto3" json:"local_certificate_properties,omitempty"`
+	LocalCertificateProperties *TLSProperties_CertificateProperties
 	// Properties of the peer certificate used to negotiate TLS.
-	//PeerCertificateProperties *TLSProperties_CertificateProperties `protobuf:"bytes,5,opt,name=peer_certificate_properties,json=peerCertificateProperties,proto3" json:"peer_certificate_properties,omitempty"`
+	PeerCertificateProperties *TLSProperties_CertificateProperties
 	// The TLS session ID.
-	//TlsSessionId string `protobuf:"bytes,6,opt,name=tls_session_id,json=tlsSessionId,proto3" json:"tls_session_id,omitempty"`
+	TlsSessionId string
 	// The ``JA3`` fingerprint when ``JA3`` fingerprinting is enabled.
-	//Ja3Fingerprint string `protobuf:"bytes,7,opt,name=ja3_fingerprint,json=ja3Fingerprint,proto3" json:"ja3_fingerprint,omitempty"`
+	Ja3Fingerprint string
 }
