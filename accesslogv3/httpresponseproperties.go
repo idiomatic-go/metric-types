@@ -1,4 +1,4 @@
-package accesslog
+package accesslogv3
 
 // [#next-free-field: 7]
 type HTTPResponseProperties struct {

@@ -1,9 +1,8 @@
-package accesslog
+package accesslogv3
 
 type HTTPRequestProperties struct {
-	RequestMethodName string
 	// The request method (RFC 7231/2616).
-	//RequestMethod RequestMethod `protobuf:"varint,1,opt,name=request_method,json=requestMethod,proto3,enum=envoy.config.core.v3.RequestMethod" json:"request_method,omitempty"`
+	RequestMethod RequestMethod
 	// The scheme portion of the incoming request URI.
 	Scheme string
 	// HTTP/2 ``:authority`` or HTTP/1.1 ``Host`` header value.

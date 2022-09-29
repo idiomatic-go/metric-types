@@ -30,7 +30,7 @@ type ResponseFlags_Unauthorized struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Reason ResponseFlags_Unauthorized_Reason `protobuf:"varint,1,opt,name=reason,proto3,enum=envoy.data.accesslog.v3.ResponseFlags_Unauthorized_Reason" json:"reason,omitempty"`
+	Reason ResponseFlags_Unauthorized_Reason `protobuf:"varint,1,opt,name=reason,proto3,enum=envoy.data.accesslogv3.v3.ResponseFlags_Unauthorized_Reason" json:"reason,omitempty"`
 }
 
 // Flags indicating occurrences during request/response processing.

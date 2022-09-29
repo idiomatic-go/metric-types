@@ -80,7 +80,7 @@ type TLSProperties struct {
 	unknownFields protoimpl.UnknownFields
 
 	// Version of TLS that was negotiated.
-	TlsVersion TLSProperties_TLSVersion `protobuf:"varint,1,opt,name=tls_version,json=tlsVersion,proto3,enum=envoy.data.accesslog.v3.TLSProperties_TLSVersion" json:"tls_version,omitempty"`
+	TlsVersion TLSProperties_TLSVersion `protobuf:"varint,1,opt,name=tls_version,json=tlsVersion,proto3,enum=envoy.data.accesslogv3.v3.TLSProperties_TLSVersion" json:"tls_version,omitempty"`
 	// TLS cipher suite negotiated during handshake. The value is a
 	// four-digit hex code defined by the IANA TLS Cipher Suite Registry
 	// (e.g. ``009C`` for ``TLS_RSA_WITH_AES_128_GCM_SHA256``).

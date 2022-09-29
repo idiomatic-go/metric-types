@@ -1,4 +1,4 @@
-package accesslog
+package accesslogv3
 
 type EnvoyInternalAddress struct {
 	ServerListenerName string

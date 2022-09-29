@@ -1,4 +1,4 @@
-package accesslog
+package accesslogv3
 
 type Pipe struct {
 	// Unix Domain Socket path. On Linux, paths starting with '@' will use the

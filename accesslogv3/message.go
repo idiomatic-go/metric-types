@@ -1,4 +1,4 @@
-package accesslog
+package accesslogv3
 
 // OriginIdentifier contains the data needed to uniquely identify a log entries
 // Do we really need the node Id ?

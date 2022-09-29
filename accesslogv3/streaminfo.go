@@ -1,4 +1,4 @@
-package accesslog
+package accesslogv3
 
 const (
 	NONE                                 = "-"
