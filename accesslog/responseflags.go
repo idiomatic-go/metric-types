@@ -1,6 +1,7 @@
 package accesslog
 
 //https://github.com/envoyproxy/envoy/blob/main/envoy/stream_info/stream_info.h
+//https://fossies.org/linux/envoy/source/common/stream_info/utility.h
 
 // Reasons why the request was unauthorized
 type ResponseFlags_Unauthorized_Reason int32
