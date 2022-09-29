@@ -11,5 +11,5 @@ type TCPAccessLogEntry struct {
 	// Common properties shared by all Envoy access logs.
 	//CommonProperties *Common
 	// Properties of the TCP connection.
-	ConnectionProperties *ConnectionProperties
+	ConnectionProperties ConnectionProperties
 }

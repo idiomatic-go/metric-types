@@ -4,9 +4,9 @@ package accesslog
 // Do we really need the node Id ?
 type OriginIdentifier struct {
 	ClientDomain string // Need this to identity for backend processing
-	Dc           string
-	Cluster      string
-	App          string
+	DataCenter   string
+	Zone         string
+	Application  string
 	PodId        string
 	NodeId       string
 }

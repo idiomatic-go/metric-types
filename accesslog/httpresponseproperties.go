@@ -3,21 +3,21 @@ package accesslog
 // [#next-free-field: 7]
 type HTTPResponseProperties struct {
 	// The HTTP response code returned by Envoy.
-	ResponseCode uint32 `protobuf:"bytes,1,opt,name=response_code,json=responseCode,proto3" json:"response_code,omitempty"`
+	ResponseCode uint32
 	// Size of the HTTP response headers in bytes.
 	//
 	// This value is captured from the OSI layer 7 perspective, i.e. it does not
 	// include overhead from framing or encoding at other networking layers.
-	ResponseHeadersBytes uint64 `protobuf:"varint,2,opt,name=response_headers_bytes,json=responseHeadersBytes,proto3" json:"response_headers_bytes,omitempty"`
+	ResponseHeadersBytes uint64
 	// Size of the HTTP response body in bytes.
 	//
 	// This value is captured from the OSI layer 7 perspective, i.e. it does not
 	// include overhead from framing or encoding at other networking layers.
-	ResponseBodyBytes uint64 `protobuf:"varint,3,opt,name=response_body_bytes,json=responseBodyBytes,proto3" json:"response_body_bytes,omitempty"`
+	ResponseBodyBytes uint64
 	// Map of additional headers configured to be logged.
-	ResponseHeaders map[string]string `protobuf:"bytes,4,rep,name=response_headers,json=responseHeaders,proto3" json:"response_headers,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
+	ResponseHeaders map[string]string
 	// Map of trailers configured to be logged.
-	ResponseTrailers map[string]string `protobuf:"bytes,5,rep,name=response_trailers,json=responseTrailers,proto3" json:"response_trailers,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
+	ResponseTrailers map[string]string
 	// The HTTP response code details.
-	ResponseCodeDetails string `protobuf:"bytes,6,opt,name=response_code_details,json=responseCodeDetails,proto3" json:"response_code_details,omitempty"`
+	ResponseCodeDetails string
 }

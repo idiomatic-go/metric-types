@@ -3,35 +3,6 @@ package accesslog
 //https://github.com/envoyproxy/envoy/blob/main/envoy/stream_info/stream_info.h
 //https://fossies.org/linux/envoy/source/common/stream_info/utility.h
 
-// Reasons why the request was unauthorized
-type ResponseFlags_Unauthorized_Reason int32
-
-func ConvertResponseUnauthorizedReason(reason int32) ResponseFlags_Unauthorized_Reason {
-	return ResponseFlags_Unauthorized_Reason(reason)
-}
-
-const (
-	ResponseFlags_Unauthorized_REASON_UNSPECIFIED ResponseFlags_Unauthorized_Reason = 0
-	// The request was denied by the external authorization service.
-	ResponseFlags_Unauthorized_EXTERNAL_SERVICE ResponseFlags_Unauthorized_Reason = 1
-)
-
-// Enum value maps for ResponseFlags_Unauthorized_Reason.
-var (
-	ResponseFlags_Unauthorized_Reason_name = map[int32]string{
-		0: "REASON_UNSPECIFIED",
-		1: "EXTERNAL_SERVICE",
-	}
-	ResponseFlags_Unauthorized_Reason_value = map[string]int32{
-		"REASON_UNSPECIFIED": 0,
-		"EXTERNAL_SERVICE":   1,
-	}
-)
-
-type ResponseFlags_Unauthorized struct {
-	Reason ResponseFlags_Unauthorized_Reason `protobuf:"varint,1,opt,name=reason,proto3,enum=envoy.data.accesslog.v3.ResponseFlags_Unauthorized_Reason" json:"reason,omitempty"`
-}
-
 // Flags indicating occurrences during request/response processing.
 // [#next-free-field: 28]
 type ResponseFlags struct {
@@ -60,7 +31,7 @@ type ResponseFlags struct {
 	// Indicates that the request was rate-limited locally.
 	RateLimited bool `protobuf:"varint,12,opt,name=rate_limited,json=rateLimited,proto3" json:"rate_limited,omitempty"`
 	// Indicates if the request was deemed unauthorized and the reason for it.
-	UnauthorizedDetails *ResponseFlags_Unauthorized `protobuf:"bytes,13,opt,name=unauthorized_details,json=unauthorizedDetails,proto3" json:"unauthorized_details,omitempty"`
+	UnauthorizedDetails string
 	// Indicates that the request was rejected because there was an error in rate limit service.
 	RateLimitServiceError bool `protobuf:"varint,14,opt,name=rate_limit_service_error,json=rateLimitServiceError,proto3" json:"rate_limit_service_error,omitempty"`
 	// Indicates the stream was reset due to a downstream connection termination.

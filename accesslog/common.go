@@ -42,7 +42,7 @@ type Common struct {
 
 	ResponseFlag        string
 	ResponseFlagExt     string
-	UnauthorizedDetails *ResponseFlags_Unauthorized_Reason
+	UnauthorizedDetails string
 
 	//Metadata *v32.Metadata
 
