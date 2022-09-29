@@ -3,12 +3,11 @@ package accesslogv3
 // OriginIdentifier contains the data needed to uniquely identify a log entries
 // Do we really need the node Id ?
 type OriginIdentifier struct {
-	ClientDomain string // Need this to identity for backend processing
-	DataCenter   string
-	Zone         string
-	Application  string
-	PodId        string
-	NodeId       string
+	DataCenter  string
+	Zone        string
+	Application string
+	InstanceId  string
+	NodeId      string
 }
 
 type CombinedEntry struct {
