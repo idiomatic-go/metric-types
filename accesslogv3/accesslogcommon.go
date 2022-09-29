@@ -1,8 +1,6 @@
 package accesslogv3
 
 import (
-	corev3 "github.com/envoyproxy/go-control-plane/envoy/config/core/v3"
-	v31 "github.com/envoyproxy/go-control-plane/envoy/data/accesslog/v3"
 	"time"
 )
 
@@ -36,10 +34,10 @@ type AccessLogCommon struct {
 
 	SampleRate float64 // Rate limiting
 
-	DownstreamRemoteAddress *corev3.Address
-	DownstreamLocalAddress  *corev3.Address
+	DownstreamRemoteAddress *Address
+	DownstreamLocalAddress  *Address
 
-	TlsProperties *v31.TLSProperties
+	TlsProperties *TLSProperties
 
 	StartTime *time.Time
 
@@ -55,8 +53,8 @@ type AccessLogCommon struct {
 	TimeToFirstDownstreamTxByte *time.Duration
 	TimeToLastDownstreamTxByte  *time.Duration
 
-	UpstreamRemoteAddress *corev3.Address
-	UpstreamLocalAddress  *corev3.Address
+	UpstreamRemoteAddress *Address
+	UpstreamLocalAddress  *Address
 	UpstreamCluster       string
 
 	ResponseFlags *ResponseFlags
@@ -65,7 +63,7 @@ type AccessLogCommon struct {
 
 	UpstreamTransportFailureReason string
 	RouteName                      string
-	DownstreamDirectRemoteAddress  *corev3.Address
+	DownstreamDirectRemoteAddress  *Address
 
 	//FilterStateObjects map[string]*any2.Any
 

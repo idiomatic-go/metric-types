@@ -208,7 +208,7 @@ func GetResponseFlags(resp *ResponseFlags) (primary string, secondary string) {
 
 	// Add UAEX
 	if resp.UnauthorizedDetails != nil {
-		if resp.UnauthorizedDetails.GetReason() == v31.ResponseFlags_Unauthorized_EXTERNAL_SERVICE {
+		if resp.UnauthorizedDetails.Reason == ResponseFlags_Unauthorized_EXTERNAL_SERVICE {
 			flags = addFlag(flags, UNAUTHORIZED_EXTERNAL_SERVICE)
 		}
 	}
