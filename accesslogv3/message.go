@@ -12,9 +12,9 @@ type OriginIdentifier struct {
 }
 
 type CombinedEntry struct {
-	CommonProperties Common
-	Http             *HTTPAccessLogEntry
-	Tcp              *TCPAccessLogEntry
+	Common *AccessLogCommon
+	Http   *HTTPAccessLogEntry
+	Tcp    *TCPAccessLogEntry
 }
 
 type Message struct {

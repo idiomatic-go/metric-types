@@ -1,24 +1,45 @@
 package accesslogv3
 
 import (
+	corev3 "github.com/envoyproxy/go-control-plane/envoy/config/core/v3"
+	v31 "github.com/envoyproxy/go-control-plane/envoy/data/accesslog/v3"
 	"time"
 )
 
+type Common_Traffic int32
+
 const (
-	IngressTraffic = "ingress"
-	EgressTraffic  = "egress"
-	PingTraffic    = "ping"
+	Common_Traffic_UNSPECIFIED Common_Traffic = 0
+	Common_Traffic_Ingress     Common_Traffic = 1
+	Common_Traffic_Egress      Common_Traffic = 2
+	Common_Traffic_Ping        Common_Traffic = 3
 )
 
-type Common struct {
-	Traffic string
+// Enum value maps for Common_Traffic
+var (
+	Common_Traffic_name = map[int32]string{
+		0: "UNSPECIFIED",
+		1: "ingress",
+		2: "egress",
+		3: "ping",
+	}
+	Commmon_Traffic_value = map[string]int32{
+		"UNSPECIFIED": 0,
+		"ingress":     1,
+		"egress":      2,
+		"ping":        3,
+	}
+)
+
+type AccessLogCommon struct {
+	Traffic Common_Traffic
 
 	SampleRate float64 // Rate limiting
 
-	DownstreamRemoteAddress *Address
-	DownstreamLocalAddress  *Address
+	DownstreamRemoteAddress *corev3.Address
+	DownstreamLocalAddress  *corev3.Address
 
-	TlsProperties *TLSProperties
+	TlsProperties *v31.TLSProperties
 
 	StartTime *time.Time
 
@@ -34,21 +55,17 @@ type Common struct {
 	TimeToFirstDownstreamTxByte *time.Duration
 	TimeToLastDownstreamTxByte  *time.Duration
 
-	UpstreamRemoteAddress *Address
-	UpstreamLocalAddress  *Address
+	UpstreamRemoteAddress *corev3.Address
+	UpstreamLocalAddress  *corev3.Address
 	UpstreamCluster       string
 
-	//ResponseFlags *ResponseFlags
-
-	ResponseFlag        string
-	ResponseFlagExt     string
-	UnauthorizedDetails string
+	ResponseFlags *ResponseFlags
 
 	//Metadata *v32.Metadata
 
 	UpstreamTransportFailureReason string
 	RouteName                      string
-	DownstreamDirectRemoteAddress  *Address
+	DownstreamDirectRemoteAddress  *corev3.Address
 
 	//FilterStateObjects map[string]*any2.Any
 
