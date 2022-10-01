@@ -4,6 +4,7 @@ go 1.18
 
 require (
 	github.com/golang/protobuf v1.5.2
+	github.com/idiomatic-go/common-lib v0.0.0-20220930162427-f5e361f7eae8
 	google.golang.org/protobuf v1.28.1
 )
 

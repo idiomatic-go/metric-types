@@ -1,29 +1,24 @@
 package accesslogv3
 
-// OriginIdentifier contains the data needed to uniquely identify a log entries
-// Do we really need the node Id ?
-type OriginIdentifier struct {
-	DataCenter  string
-	Zone        string
-	Application string
-	InstanceId  string
-	NodeId      string
+import (
+	"github.com/idiomatic-go/common-lib/util"
+)
+
+// Provenance contains the attributes needed to identify a log entry's place of origin, down to the instance
+type Provenance struct {
+	Locality    *Locality // Region (data center), Zone, SubZone (cluster)
+	Application string    // Service name
+	InstanceId  string    // Pod or Node identifier
 }
 
 type CombinedEntry struct {
-	Common *AccessLogCommon
+	Common *CommonProperties
 	Http   *HTTPAccessLogEntry
 	Tcp    *TCPAccessLogEntry
 }
 
 type Message struct {
-	Origin OriginIdentifier
-	// Batches of log entries of a single type. Generally speaking, a given stream should only
-	// ever include one type of log entry.
-	//
-	// Types that are assignable to LogEntries:
-	//	*StreamAccessLogsMessage_HttpLogs
-	//	*StreamAccessLogsMessage_TcpLogs
-	// HttpLogs
+	Identifier *Provenance
+	Dictionary *util.InvertedDictionary
 	LogEntries []*CombinedEntry
 }

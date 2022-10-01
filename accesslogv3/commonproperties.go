@@ -29,7 +29,7 @@ var (
 	}
 )
 
-type AccessLogCommon struct {
+type CommonProperties struct {
 	Traffic Common_Traffic
 
 	SampleRate float64 // Rate limiting
