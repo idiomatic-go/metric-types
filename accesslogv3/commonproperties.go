@@ -1,6 +1,7 @@
 package accesslogv3
 
 import (
+	"github.com/idiomatic-go/common-lib/util"
 	"time"
 )
 
@@ -55,15 +56,17 @@ type CommonProperties struct {
 
 	UpstreamRemoteAddress *Address
 	UpstreamLocalAddress  *Address
-	UpstreamCluster       string
+	//UpstreamCluster       string
+	UpstreamCluster util.DictionaryValue
 
 	ResponseFlags *ResponseFlags
 
 	//Metadata *v32.Metadata
 
 	UpstreamTransportFailureReason string
-	RouteName                      string
-	DownstreamDirectRemoteAddress  *Address
+	//RouteName                      string
+	RouteName                     util.DictionaryValue
+	DownstreamDirectRemoteAddress *Address
 
 	//FilterStateObjects map[string]*any2.Any
 

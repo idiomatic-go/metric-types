@@ -7,8 +7,8 @@ import (
 // Provenance contains the attributes needed to identify a log entry's place of origin, down to the instance
 type Provenance struct {
 	Locality    *Locality // Region (data center), Zone, SubZone (cluster)
-	Application string    // Service name
-	InstanceId  string    // Pod or Node identifier
+	Application string    // (service name), (container name), (uri host)
+	InstanceId  string    // (pod), (node), (physical host) identifier
 }
 
 type CombinedEntry struct {

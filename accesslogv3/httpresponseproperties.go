@@ -1,5 +1,7 @@
 package accesslogv3
 
+import "github.com/idiomatic-go/common-lib/util"
+
 // [#next-free-field: 7]
 type HTTPResponseProperties struct {
 	// The HTTP response code returned by Envoy.
@@ -19,5 +21,6 @@ type HTTPResponseProperties struct {
 	// Map of trailers configured to be logged.
 	ResponseTrailers map[string]string
 	// The HTTP response code details.
-	ResponseCodeDetails string
+	//ResponseCodeDetails string
+	ResponseCodeDetails util.DictionaryValue
 }
